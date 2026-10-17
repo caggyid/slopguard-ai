@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 552" role="img" aria-label="Perbandingan pola AI slop dengan yang diminta SlopGuard">
+<rect width="960" height="552" rx="8" fill="#FAFAF7" stroke="#D4D2CA"/>
+<text x="32" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#111111">Slop vs SlopGuard</text>
+<text x="32" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#374151">Kiri: yang dihasilkan alat vibe coding kalau dibiarkan. Kanan: yang diminta di setiap prompt.</text>
+<text x="32" y="124" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="500" fill="#6B6B66">BIASANYA</text>
+<text x="372" y="124" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="500" fill="#111111">SLOPGUARD MEMINTA</text>
+<line x1="32" y1="138" x2="928" y2="138" stroke="#D4D2CA"/>
+<text x="32" y="164" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#6B6B66">Hero rata tengah, dua tombol</text>
+<text x="372" y="164" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">Hero 7/5 rata kiri. Satu tombol solid, aksi kedua berupa tautan teks.</text>
+<line x1="32" y1="204" x2="928" y2="204" stroke="#D4D2CA"/>
+<text x="32" y="230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#6B6B66">Tiga kartu identik sejajar</text>
+<text x="372" y="230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">Span asimetris (5/7, 8/4). Satu elemen dominan per section.</text>
+<line x1="32" y1="270" x2="928" y2="270" stroke="#D4D2CA"/>
+<text x="32" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#6B6B66">Gradasi ungu, glassmorphism</text>
+<text x="372" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">Satu hue brand, permukaan flat, shadow-sm atau shadow-md netral.</text>
+<line x1="32" y1="336" x2="928" y2="336" stroke="#D4D2CA"/>
+<text x="32" y="362" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#6B6B66">Inter di mana-mana, font-extrabold</text>
+<text x="372" y="362" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">Bricolage Grotesque, Fraunces, Satoshi, atau Cabinet Grotesk. Bobot</text>
+<text x="372" y="382" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">400/500/700.</text>
+<line x1="32" y1="402" x2="928" y2="402" stroke="#D4D2CA"/>
+<text x="32" y="428" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#6B6B66">max-w-7xl dan py-20 di semua section</text>
+<text x="372" y="428" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">max-w-2xl, max-w-6xl, dan full-bleed. Padding bergantian per section.</text>
+<line x1="32" y1="468" x2="928" y2="468" stroke="#D4D2CA"/>
+<text x="32" y="494" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#6B6B66">“Trusted by”, emoji sebagai ikon</text>
+<text x="372" y="494" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#111111">Fakta yang tidak ada ditulis [ISI: ...]. Satu library ikon, monokrom.</text>
+</svg>

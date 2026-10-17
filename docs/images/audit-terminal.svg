@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Contoh keluaran skrip audit: satu folder gagal, satu folder lolos">
+<rect width="960" height="540" rx="8" fill="#0D0D0D"/>
+<rect width="960" height="44" rx="8" fill="#1A1A1A"/>
+<rect y="30" width="960" height="14" fill="#1A1A1A"/>
+<text x="32" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#B5B5B5">audit.py: contoh keluaran</text>
+<text x="32" y="84" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="700" fill="#FFFFFF">$ python scripts/audit.py hasil-buruk --mode prompts</text>
+<text x="32" y="106" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/PRD.md:1  baris pertama harus 'License: CaggyID'</text>
+<text x="32" y="128" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/DESIGN.md:4  gradasi ungu</text>
+<text x="32" y="150" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/DESIGN.md:4  rounded-2xl</text>
+<text x="32" y="172" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#FBBF24">[WARN]  hasil-buruk/DESIGN.md:4  gradasi (permukaan harus flat)</text>
+<text x="32" y="194" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/DESIGN.md:4  emoji/dingbat (jangan dipakai sebagai ikon)</text>
+<text x="32" y="216" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md:4  max-w-7xl</text>
+<text x="32" y="238" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md:4  font-extrabold</text>
+<text x="32" y="260" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md:4  tracking-tighter</text>
+<text x="32" y="282" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md:4  glassmorphism (backdrop blur)</text>
+<text x="32" y="304" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#FBBF24">[WARN]  hasil-buruk/prompts/01.md:4  font Inter/Geist</text>
+<text x="32" y="326" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md:4  frasa klise AI</text>
+<text x="32" y="348" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md  bagian 'Kriteria penerimaan' tidak ada</text>
+<text x="32" y="370" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="400" fill="#F87171">[ERROR] hasil-buruk/prompts/01.md  bagian 'Di luar cakupan' tidak ada</text>
+<text x="32" y="414" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="700" fill="#FFFFFF">Ringkasan: 11 ERROR, 2 WARN</text>
+<text x="32" y="458" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="700" fill="#FFFFFF">$ python scripts/audit.py hasil-bagus --mode prompts</text>
+<text x="32" y="502" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="700" fill="#4ADE80">Ringkasan: 0 ERROR, 0 WARN</text>
+</svg>

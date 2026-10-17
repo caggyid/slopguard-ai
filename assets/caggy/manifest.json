@@ -1,0 +1,200 @@
+[
+  {
+    "path": "assets/caggy/background/bg-medical-cross-blue.jpg",
+    "category": "background",
+    "kind": "background",
+    "width": 736,
+    "height": 461,
+    "background": "biru muda",
+    "note": "Biru muda dengan bentuk plus/cross medis samar. Cocok: rumah sakit, klinik, kesehatan."
+  },
+  {
+    "path": "assets/caggy/background/bg-wave-white.jpg",
+    "category": "background",
+    "kind": "background",
+    "width": 700,
+    "height": 350,
+    "background": "putih-abu",
+    "note": "Gelombang putih-abu netral. Aman untuk semua industri sebagai dasar section terang."
+  },
+  {
+    "path": "assets/caggy/background/bg-silver-light.jpg",
+    "category": "background",
+    "kind": "background",
+    "width": 735,
+    "height": 490,
+    "background": "biru-perak",
+    "note": "Garis cahaya biru-perak, mood dingin dan cerah. Cocok: hosting, bisnis, teknologi."
+  },
+  {
+    "path": "assets/caggy/background/bg-dark-silk.jpg",
+    "category": "background",
+    "kind": "background",
+    "width": 735,
+    "height": 412,
+    "background": "hitam",
+    "note": "Gelombang sutra hitam. Cocok: fashion, trading, editing, mode gelap."
+  },
+  {
+    "path": "assets/caggy/background/bg-dark-lines.jpg",
+    "category": "background",
+    "kind": "background",
+    "width": 735,
+    "height": 475,
+    "background": "hitam",
+    "note": "Hitam dengan garis cahaya putih. Cocok: developer, hosting, trading, mode gelap."
+  },
+  {
+    "path": "assets/caggy/delivery/delivery-3d-vehicles-sheet.jpg",
+    "category": "delivery",
+    "kind": "icon-sheet",
+    "width": 736,
+    "height": 1376,
+    "background": "krem",
+    "note": "Lembar ikon 3D kendaraan oranye (mobil, motor, truk, drone, forklift) di latar krem. Perlu di-crop per ikon."
+  },
+  {
+    "path": "assets/caggy/delivery/delivery-courier-scooter.jpg",
+    "category": "delivery",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Scooter merah keluar dari layar ponsel membawa paket. Cocok jadi visual utama satu section."
+  },
+  {
+    "path": "assets/caggy/delivery/delivery-location-pin-parcel.jpg",
+    "category": "delivery",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Pin lokasi merah dengan tangan menyerahkan paket. Cocok: pelacakan, alamat, area layanan."
+  },
+  {
+    "path": "assets/caggy/development/dev-3d-icon-sheet.jpg",
+    "category": "development",
+    "kind": "icon-sheet",
+    "width": 736,
+    "height": 943,
+    "background": "putih",
+    "note": "Lembar ikon 3D hitam-oranye (kode, browser www, folder, HTML, loading). Perlu di-crop per ikon."
+  },
+  {
+    "path": "assets/caggy/editing/editing-3d-app-icons-sheet.jpg",
+    "category": "editing",
+    "kind": "icon-sheet",
+    "width": 736,
+    "height": 1355,
+    "background": "gradasi gelap",
+    "note": "Lembar ikon aplikasi desain berwarna-warni. PERHATIAN: sebagian ikon mirip logo produk Adobe (Ps, Pr, Ai, Au). Jangan dipakai di produk publik/komersial tanpa dicek."
+  },
+  {
+    "path": "assets/caggy/fashion/fashion-3d-sale-icons-sheet.jpg",
+    "category": "fashion",
+    "kind": "icon-sheet",
+    "width": 736,
+    "height": 944,
+    "background": "putih",
+    "note": "Lembar ikon 3D hitam-merah (tas belanja, SALE, megafon, troli, jam). Perlu di-crop per ikon."
+  },
+  {
+    "path": "assets/caggy/fashion/fashion-hero-mobile-shopping.jpg",
+    "category": "fashion",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 613,
+    "background": "putih",
+    "note": "Ponsel dengan kanopi toko, troli, kartu, paket, struk. Cocok: e-commerce, toko online."
+  },
+  {
+    "path": "assets/caggy/hospital/hospital-bed-patient.jpg",
+    "category": "hospital",
+    "kind": "spot-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Ranjang rawat inap isometrik dengan pasien dan infus."
+  },
+  {
+    "path": "assets/caggy/hospital/hospital-building.jpg",
+    "category": "hospital",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "abu-terang",
+    "note": "Gedung rumah sakit isometrik. Latar abu terang, bukan putih murni."
+  },
+  {
+    "path": "assets/caggy/hospital/hospital-medical-elements-sheet.jpg",
+    "category": "hospital",
+    "kind": "icon-sheet",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Lembar 30 elemen medis (stetoskop, masker, obat, jarum suntik, kursi roda). Perlu di-crop per ikon."
+  },
+  {
+    "path": "assets/caggy/hosting/hosting-domain-browser.jpg",
+    "category": "hosting",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Jendela browser dengan www, globe, kaca pembesar. PERHATIAN: teks pada gambar salah eja ('.COm', '.arg'). Jangan dipakai tampil utuh; crop bagian globe atau ganti."
+  },
+  {
+    "path": "assets/caggy/hosting/hosting-business-icons-sheet.jpg",
+    "category": "hosting",
+    "kind": "icon-sheet",
+    "width": 736,
+    "height": 1104,
+    "background": "biru muda",
+    "note": "Lembar ikon biru bisnis/keuangan/hosting. PERHATIAN: ada watermark 'Iconora Studio' di bagian bawah; crop atau ganti sebelum dipakai."
+  },
+  {
+    "path": "assets/caggy/school/school-students-walking.jpg",
+    "category": "school",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 1104,
+    "background": "putih",
+    "note": "Dua siswa berseragam putih-biru membawa buku dan tas. Cocok: sekolah, bimbel, kursus."
+  },
+  {
+    "path": "assets/caggy/school/school-supplies-checkerboard.jpg",
+    "category": "school",
+    "kind": "spot-illustration",
+    "width": 736,
+    "height": 650,
+    "background": "KOTAK-KOTAK TERPANGGANG",
+    "note": "Buku, tas, topi toga, pensil. PERHATIAN: pola kotak-kotak 'transparan' tertanam di gambar (bukan transparansi asli). Tidak bisa ditaruh di atas warna solid; perlu cutout ulang."
+  },
+  {
+    "path": "assets/caggy/trading/trading-analytics-clipboard.jpg",
+    "category": "trading",
+    "kind": "hero-illustration",
+    "width": 980,
+    "height": 980,
+    "background": "putih",
+    "note": "Clipboard grafik batang, kalkulator, koin. Cocok: keuangan, akuntansi, analitik."
+  },
+  {
+    "path": "assets/caggy/trading/trading-trader-candles.jpg",
+    "category": "trading",
+    "kind": "hero-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Trader dengan grafik candlestick dan label BUY/SELL (teks Inggris di dalam gambar)."
+  },
+  {
+    "path": "assets/caggy/trading/trading-coins-growth.jpg",
+    "category": "trading",
+    "kind": "spot-illustration",
+    "width": 736,
+    "height": 736,
+    "background": "putih",
+    "note": "Tumpukan koin dan batang hijau naik. Ikon tunggal bersih, mudah dipakai."
+  }
+]
