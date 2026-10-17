@@ -54,6 +54,23 @@ python scripts/audit.py <folder-proyek> --mode code     # kode hasil vibe coding
 
 Skrip memeriksa blok license, bagian wajib di tiap prompt, dan kelas atau frasa terlarang. Kode keluar 1 bila ada ERROR. Skrip ini heuristik: baris yang memuat kata penolak seperti "jangan" atau "tanpa" dianggap melarang pola, jadi kalimat yang menyelipkan pola terlarang di baris semacam itu bisa lolos. Baca juga [`references/05-audit-checklist.md`](references/05-audit-checklist.md).
 
+## Instal ke agent AI
+
+`install.sh` memasang SlopGuard ke beberapa agent sekaligus: Claude Code, OpenAI Codex, Google Antigravity, Gemini CLI, Cursor, OpenCode, GitHub Copilot, Windsurf, dan Cline. Jalankan dari dalam folder repo (macOS, Linux, WSL, atau Git Bash di Windows).
+
+```bash
+./install.sh                          # menu: pilih agent dengan nomor
+./install.sh -a claude,codex          # pilih agent langsung
+./install.sh --all -y                 # semua agent tanpa tanya
+./install.sh -a antigravity -p        # hanya untuk proyek di folder ini
+./install.sh -a claude --uninstall    # hapus
+./install.sh --list                   # daftar agent dan lokasinya
+```
+
+Opsi lain: `-s` untuk symlink (update repo langsung ikut), `-d PATH` untuk folder skill lain, `-n` untuk dry-run. Skrip hanya menyentuh folder `slopguard` di dalam folder skill tiap agent, jadi skill lain milikmu aman. Restart agent setelah pemasangan.
+
+Lokasi folder skill tiap agent bisa berubah antar versi. Kalau ada yang bergeser, ubah fungsi `agent_info` di bagian atas `install.sh`.
+
 ## Pemakaian
 
 Di Claude, unggah folder ini sebagai skill (zip-kan foldernya). Di Claude Code, taruh folder ini di `.claude/skills/slopguard/` pada proyekmu. Lalu minta, misalnya:
@@ -80,6 +97,7 @@ Tempel prompt satu per satu sesuai nomor. Setiap prompt berdiri sendiri, jadi al
 slopguard/
 ├── SKILL.md                          alur kerja utama (dibaca Claude)
 ├── README.md
+├── install.sh                        pemasang ke banyak agent AI
 ├── LICENSE
 ├── references/
 │   ├── 01-asset-intake.md            pertanyaan assets
@@ -87,8 +105,12 @@ slopguard/
 │   ├── 03-prd-template.md            struktur PRD
 │   ├── 04-prompt-template.md         struktur dan daftar fase prompt
 │   ├── 05-audit-checklist.md         checklist sebelum kirim
-│   └── 06-caggy-assets-catalog.md    katalog 22 gambar
+│   ├── 06-caggy-assets-catalog.md    katalog 22 gambar
+│   ├── 07-impeccable-review.md       peta review desain (Langkah 5b)
+│   └── impeccable/                   typeset, layout, colorize, distill, harden, polish, audit
 ├── assets/caggy/                     gambar per kategori + manifest.json
+├── NOTICE.md                         atribusi pihak ketiga (Impeccable, Apache 2.0)
+├── third_party/                      teks lisensi asli Impeccable
 ├── scripts/audit.py                  pemeriksa pola terlarang dan license
 └── docs/images/                      gambar untuk README dan logo
 ```

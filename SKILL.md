@@ -89,6 +89,10 @@ Skrip memeriksa blok license di tiap file, kata dan kelas terlarang yang muncul 
 
 Skrip yang sama bisa dipakai di kode hasil vibe coding dengan `--mode code` untuk menangkap pola terlarang yang lolos ke implementasi.
 
+### Langkah 5b — Review desain (opsional, untuk kode atau desain yang sudah ada)
+
+Kalau pengguna meminta review, perapihan, atau hasil vibe coding perlu dinilai, baca `references/07-impeccable-review.md` lalu pilih berkas yang cocok di `references/impeccable/` (audit, typeset, layout, colorize, distill, harden, polish). Berkas itu diadaptasi dari Impeccable (Apache 2.0); lihat `NOTICE.md`. `DESIGN.md` proyek tetap mengikat.
+
 ### Langkah 6 — Kirim
 
 Tulis hasil ke `/mnt/user-data/outputs/<slug-proyek>/`:
@@ -117,3 +121,6 @@ Beri tahu pengguna dalam beberapa kalimat: apa yang dibuat, assets mana yang dip
 | `references/06-caggy-assets-catalog.md` | Langkah 0 hasil B atau C |
 | `assets/caggy/manifest.json` | Bila perlu daftar assets yang bisa dibaca mesin |
 | `scripts/audit.py` | Langkah 5 |
+| `references/07-impeccable-review.md` | Langkah 5b |
+| `references/impeccable/*.md` | Langkah 5b, dipilih lewat berkas 07 |
+| `NOTICE.md` | Atribusi pihak ketiga (Impeccable, Apache 2.0) |
