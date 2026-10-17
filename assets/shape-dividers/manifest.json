@@ -1,0 +1,140 @@
+[
+  {
+    "id": "curve",
+    "name": "Curve",
+    "path": "assets/shape-dividers/curve.svg",
+    "layers": 1,
+    "d": [
+      "M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"
+    ]
+  },
+  {
+    "id": "fan",
+    "name": "Fan",
+    "path": "assets/shape-dividers/fan.svg",
+    "layers": 3,
+    "d": [
+      "M0,28 L1000,100 H0 Z",
+      "M1000,28 L0,100 H1000 Z",
+      "M0,95 H1000 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "curve-opacity",
+    "name": "Curve Opacity",
+    "path": "assets/shape-dividers/curve-opacity.svg",
+    "layers": 3,
+    "d": [
+      "M0,0 C0,0 250,85 500,85 C750,85 1000,0 1000,0 V100 H0 Z",
+      "M0,0 C200,70 350,72 500,72 C650,72 800,70 1000,0 V100 H0 Z",
+      "M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"
+    ]
+  },
+  {
+    "id": "mountains",
+    "name": "Mountains",
+    "path": "assets/shape-dividers/mountains.svg",
+    "layers": 4,
+    "d": [
+      "M0,45 C80,20 130,10 220,40 S360,75 450,48 S640,5 740,38 S900,70 1000,30 V100 H0 Z",
+      "M0,62 C90,40 170,35 260,58 S420,85 520,60 S700,28 800,55 S950,78 1000,52 V100 H0 Z",
+      "M0,78 C120,60 200,66 300,78 S480,92 580,76 S760,58 860,74 S960,86 1000,72 V100 H0 Z",
+      "M0,94 C150,90 300,97 450,93 S750,90 1000,94 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "curve-asym",
+    "name": "Curve Asym.",
+    "path": "assets/shape-dividers/curve-asym.svg",
+    "layers": 1,
+    "d": [
+      "M0,52 C260,100 560,12 790,6 C900,3 960,24 1000,46 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "curve-asym-alt",
+    "name": "Curve Asym. Alt",
+    "path": "assets/shape-dividers/curve-asym-alt.svg",
+    "layers": 1,
+    "d": [
+      "M1000,52 C740,100 440,12 210,6 C100,3 40,24 0,46 V100 H1000 Z"
+    ]
+  },
+  {
+    "id": "tilt",
+    "name": "Tilt",
+    "path": "assets/shape-dividers/tilt.svg",
+    "layers": 1,
+    "d": [
+      "M0,6 L1000,100 H0 Z"
+    ]
+  },
+  {
+    "id": "tilt-alt",
+    "name": "Tilt Alt",
+    "path": "assets/shape-dividers/tilt-alt.svg",
+    "layers": 1,
+    "d": [
+      "M1000,6 L0,100 H1000 Z"
+    ]
+  },
+  {
+    "id": "triangle",
+    "name": "Triangle",
+    "path": "assets/shape-dividers/triangle.svg",
+    "layers": 1,
+    "d": [
+      "M0,6 L500,99 L1000,6 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "waves",
+    "name": "Waves",
+    "path": "assets/shape-dividers/waves.svg",
+    "layers": 1,
+    "d": [
+      "M0,82 C120,96 230,78 360,62 S560,76 700,42 S920,10 1000,14 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "waves-opacity",
+    "name": "Waves Opacity",
+    "path": "assets/shape-dividers/waves-opacity.svg",
+    "layers": 3,
+    "d": [
+      "M0,64 C140,52 260,84 400,70 S620,40 760,48 S940,26 1000,22 V100 H0 Z",
+      "M0,76 C140,88 250,66 390,70 S600,86 760,52 S940,34 1000,34 V100 H0 Z",
+      "M0,88 C130,96 250,82 380,80 S600,88 760,60 S930,44 1000,40 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "waves-opacity-2",
+    "name": "Waves Opacity 2",
+    "path": "assets/shape-dividers/waves-opacity-2.svg",
+    "layers": 4,
+    "d": [
+      "M0,60 C150,40 300,70 460,64 S760,30 1000,10 V100 H0 Z",
+      "M0,72 C150,56 310,82 470,76 S770,46 1000,26 V100 H0 Z",
+      "M0,84 C150,72 320,92 480,86 S780,62 1000,44 V100 H0 Z",
+      "M0,95 C160,88 330,98 490,95 S790,80 1000,64 V100 H0 Z"
+    ]
+  },
+  {
+    "id": "clouds",
+    "name": "Clouds",
+    "path": "assets/shape-dividers/clouds.svg",
+    "layers": 1,
+    "d": [
+      "M0,100 V80 H1000 V100 Z M56,80 a14,14 0 1 1 28,0 a14,14 0 1 1 -28,0 Z M75,80 a20,20 0 1 1 40,0 a20,20 0 1 1 -40,0 Z M113,80 a12,12 0 1 1 24,0 a12,12 0 1 1 -24,0 Z M192,80 a18,18 0 1 1 36,0 a18,18 0 1 1 -36,0 Z M213,80 a27,27 0 1 1 54,0 a27,27 0 1 1 -54,0 Z M257,80 a18,18 0 1 1 36,0 a18,18 0 1 1 -36,0 Z M315,80 a15,15 0 1 1 30,0 a15,15 0 1 1 -30,0 Z M338,80 a22,22 0 1 1 44,0 a22,22 0 1 1 -44,0 Z M381,80 a14,14 0 1 1 28,0 a14,14 0 1 1 -28,0 Z M459,80 a21,21 0 1 1 42,0 a21,21 0 1 1 -42,0 Z M485,80 a30,30 0 1 1 60,0 a30,30 0 1 1 -60,0 Z M535,80 a20,20 0 1 1 40,0 a20,20 0 1 1 -40,0 Z M596,80 a14,14 0 1 1 28,0 a14,14 0 1 1 -28,0 Z M626,80 a24,24 0 1 1 48,0 a24,24 0 1 1 -48,0 Z M674,80 a16,16 0 1 1 32,0 a16,16 0 1 1 -32,0 Z M740,80 a20,20 0 1 1 40,0 a20,20 0 1 1 -40,0 Z M767,80 a28,28 0 1 1 56,0 a28,28 0 1 1 -56,0 Z M817,80 a18,18 0 1 1 36,0 a18,18 0 1 1 -36,0 Z M885,80 a15,15 0 1 1 30,0 a15,15 0 1 1 -30,0 Z M906,80 a24,24 0 1 1 48,0 a24,24 0 1 1 -48,0 Z M949,80 a16,16 0 1 1 32,0 a16,16 0 1 1 -32,0 Z"
+    ]
+  },
+  {
+    "id": "speech",
+    "name": "Speech",
+    "path": "assets/shape-dividers/speech.svg",
+    "layers": 1,
+    "d": [
+      "M0,100 V70 H478 L500,92 L522,70 H1000 V100 Z"
+    ]
+  }
+]

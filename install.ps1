@@ -30,7 +30,7 @@ try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
 
 $SkillName = 'slopguard'
 $Version   = '1.0.0'
-$Payload   = @('SKILL.md', 'LICENSE', 'NOTICE.md', 'references', 'scripts', 'assets', 'third_party')
+$Payload   = @('SKILL.md', 'LICENSE', 'references', 'scripts', 'assets')
 
 $Src = $PSScriptRoot
 if (-not $Src) { $Src = Split-Path -Parent $MyInvocation.MyCommand.Path }

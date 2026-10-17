@@ -18,7 +18,7 @@ INSTALLER_VERSION="1.0.0"
 AGENT_IDS="claude codex antigravity gemini cursor opencode copilot windsurf cline"
 
 # Isi skill yang disalin. docs/ sengaja tidak ikut (hanya gambar README).
-PAYLOAD="SKILL.md LICENSE NOTICE.md references scripts assets third_party"
+PAYLOAD="SKILL.md LICENSE references scripts assets"
 
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 

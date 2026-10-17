@@ -29,6 +29,9 @@ Dua hal membuat hasilnya berbeda dari PRD biasa:
 3. **Jangan menginstruksikan pola terlarang.** Prompt yang kamu tulis tidak boleh meminta pola di `references/02-design-rules.md` bagian "Terlarang". Menyebutnya dalam baris "Jangan" untuk melarang itu boleh, dan memang berguna.
 4. **Jangan mengarang fakta.** Nama klien, testimoni, angka statistik, logo mitra, dan harga yang tidak diberikan pengguna ditulis sebagai `[ISI: ...]`. Alasannya: bagian "Trusted by" dan testimoni palsu adalah ciri paling cepat dikenali dari web buatan AI.
 5. **Ikuti bahasa pengguna.** Percakapan dan dokumen dalam bahasa pengguna; istilah teknis (nama kelas Tailwind, nama library) tetap dalam bahasa Inggris.
+6. **Padding lega, tidak boleh sesak.** Padding yang terlalu sempit adalah salah satu tanda paling cepat dari UI buatan AI. Kartu dan panel minimal `p-6`, jarak antar item grid minimal `gap-6`, padding section dari `py-12` ke atas, gutter halaman minimal `px-6`. Angka lengkapnya ada di bagian "Ruang napas" di `references/02-design-rules.md`. Setiap prompt yang kamu tulis harus mencantumkan nilai padding yang konkret.
+7. **Dilarang kartu di dalam kartu (nested card).** Tidak ada permukaan ber-border, bershadow, atau ber-rounded di dalam permukaan lain yang juga begitu. Ratakan strukturnya: pakai jarak, `border-t`, atau daftar polos. Detail dan pengecualian ada di `references/02-design-rules.md`.
+8. **Shape divider hanya dari `assets/shape-dividers/`.** Pakai file yang sudah disediakan, persis seperti adanya. Bentuknya tidak boleh diubah; yang boleh diganti hanya warnanya, dan warna itu harus satu solid yang sederhana, tanpa gradasi, tanpa neon. Lihat `references/08-shape-dividers.md`.
 
 ## Alur kerja
 
@@ -64,7 +67,9 @@ Baca `references/02-design-rules.md`. Hasilkan `DESIGN.md` berisi keputusan konk
 
 - satu hue brand (hex) dan turunan netralnya, dengan pembagian 60-30-10
 - pasangan font (display + isi), skala modular 1.25, dua sampai tiga bobot
-- lebar kontainer per jenis konten, ritme padding section
+- lebar kontainer per jenis konten, ritme padding section, serta padding kartu dan jarak grid (tidak di bawah batas "Ruang napas")
+- struktur kartu yang datar: tulis bagian mana yang berupa kartu dan pastikan tidak ada yang bersarang
+- shape divider: bentuk mana (dari 14 file di `assets/shape-dividers/`), di pergantian section mana, dan token warna apa; atau tulis "tidak dipakai"
 - minimal dua momen asimetris per halaman, disebut di section mana
 - satu library ikon dan satu varian
 - penempatan assets (file mana di section mana)
@@ -91,7 +96,7 @@ Skrip yang sama bisa dipakai di kode hasil vibe coding dengan `--mode code` untu
 
 ### Langkah 5b — Review desain (opsional, untuk kode atau desain yang sudah ada)
 
-Kalau pengguna meminta review, perapihan, atau hasil vibe coding perlu dinilai, baca `references/07-impeccable-review.md` lalu pilih berkas yang cocok di `references/impeccable/` (audit, typeset, layout, colorize, distill, harden, polish). Berkas itu diadaptasi dari Impeccable (Apache 2.0); lihat `NOTICE.md`. `DESIGN.md` proyek tetap mengikat.
+Kalau pengguna meminta review, perapihan, atau hasil vibe coding perlu dinilai, baca `references/07-review.md` lalu pilih berkas yang cocok di `references/` (`audit.md`, `typeset.md`, `layout.md`, `colorize.md`, `distill.md`, `harden.md`, `polish.md`). Semuanya berlisensi CaggyID. `DESIGN.md` proyek tetap mengikat.
 
 ### Langkah 6 — Kirim
 
@@ -104,7 +109,7 @@ Tulis hasil ke `/mnt/user-data/outputs/<slug-proyek>/`:
 ├── prompts/
 │   ├── 00-setup.md
 │   └── ...
-└── public-assets/        (hanya assets Caggy yang dipilih, bila Langkah 0 hasil C atau B)
+└── public-assets/        (assets Caggy yang dipilih bila Langkah 0 hasil C atau B, dan file di shape-dividers/ yang dipakai)
 ```
 
 Beri tahu pengguna dalam beberapa kalimat: apa yang dibuat, assets mana yang dipakai, asumsi terbesar, dan satu keputusan yang butuh persetujuan mereka. Jangan menempelkan seluruh isi file ke chat.
@@ -119,8 +124,9 @@ Beri tahu pengguna dalam beberapa kalimat: apa yang dibuat, assets mana yang dip
 | `references/04-prompt-template.md` | Langkah 4 |
 | `references/05-audit-checklist.md` | Langkah 5 |
 | `references/06-caggy-assets-catalog.md` | Langkah 0 hasil B atau C |
+| `references/08-shape-dividers.md` | Langkah 2 dan setiap prompt yang memakai pemisah section |
+| `assets/shape-dividers/*.svg` | Disalin apa adanya ke proyek bila DESIGN.md memakai divider |
 | `assets/caggy/manifest.json` | Bila perlu daftar assets yang bisa dibaca mesin |
 | `scripts/audit.py` | Langkah 5 |
-| `references/07-impeccable-review.md` | Langkah 5b |
-| `references/impeccable/*.md` | Langkah 5b, dipilih lewat berkas 07 |
-| `NOTICE.md` | Atribusi pihak ketiga (Impeccable, Apache 2.0) |
+| `references/07-review.md` | Langkah 5b |
+| `references/audit.md`, `typeset.md`, `layout.md`, `colorize.md`, `distill.md`, `harden.md`, `polish.md` | Langkah 5b, dipilih lewat berkas 07 |

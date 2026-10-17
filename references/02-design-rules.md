@@ -5,7 +5,7 @@ License: CaggyID
 
 Aturan ini dibuat dari satu masalah: alat vibe coding, kalau dibiarkan, menghasilkan tampilan yang sama di semua proyek. Tujuan aturan ini adalah membuat setiap proyek terlihat dirancang untuk produknya.
 
-Daftar isi: Terlarang · Warna · Tipografi · Layout · Ikon dan gambar · Komponen · Salinan teks · Token siap tempel · Cara menulisnya di prompt
+Daftar isi: Terlarang · Warna · Tipografi · Layout · Ruang napas · Shape divider · Ikon dan gambar · Komponen · Salinan teks · Token siap tempel · Cara menulisnya di prompt
 
 ## Terlarang
 
@@ -27,6 +27,9 @@ UI/UX dan komponen bergaya AI:
 - kartu dengan garis tebal di sisi kiri (left-border cards)
 - judul bergradasi (gradient headline)
 - `font-extrabold tracking-tighter`
+- kartu di dalam kartu (nested card)
+- padding sempit atau sesak (cramped padding)
+- shape divider buatan sendiri, bentuk yang diubah, atau divider bergradasi atau neon
 
 Layout:
 
@@ -62,9 +65,39 @@ Alasannya: masing-masing pola ini adalah "tanda tangan" keluaran AI yang paling 
 - **Padding section bervariasi.** Pilih dari `py-12`, `py-16`, `py-24`, `py-32`. Dua section yang bersebelahan tidak boleh memakai padding yang sama.
 - **Struktur grid bercampur**: kolom 2, 4, atau span asimetris (misalnya 5/7 atau 8/4 pada grid 12 kolom). Hindari tiga kolom yang sama lebar.
 - **Satu elemen dominan per section.** Satu judul besar, atau satu visual besar, bukan lima hal sama berat.
-- **Skala jarak kontekstual**: 4 px antar elemen sebaris, 16 px dalam kartu, 48 px antar blok section.
+- **Skala jarak kontekstual**: 4 px antar elemen sebaris, 16 px antar elemen di dalam kartu (padding kartu sendiri minimal 24 px, lihat Ruang napas), 48 px antar blok section.
 - **Minimal dua momen asimetris yang disengaja per halaman.** Contoh: hero dengan teks di kolom kiri 7/12 dan visual yang menembus tepi kanan; satu section dengan judul di kolom sempit kiri dan isi di kolom lebar kanan; satu gambar yang bergeser keluar dari kontainer. Sebut momennya satu per satu di DESIGN.md.
 - Rata kiri sebagai default. Rata tengah hanya untuk elemen tunggal pendek (misalnya satu kalimat penutup), tidak untuk seluruh halaman.
+- **Struktur datar, tanpa kartu bersarang.** Kartu adalah permukaan yang punya border, shadow, atau `rounded` di atas latar halaman. Di dalam kartu tidak boleh ada kartu lain, panel ber-border, atau kotak ber-latar berbeda yang terlihat seperti kartu. Kalau isi kartu perlu dikelompokkan, pakai jarak, garis pemisah `border-t`, atau daftar polos. Kalau sebuah blok tidak perlu menonjol, jangan jadikan kartu sama sekali; jarak dan perataan sudah cukup. Yang bukan kartu dan boleh ada di dalam kartu: input, tombol, badge kecil, avatar, gambar, blok kode, dan sel tabel.
+
+## Ruang napas
+
+Padding sempit membuat UI terlihat dibuat tergesa-gesa dan itu cepat dikenali sebagai buatan AI. Batas bawah di bawah ini berlaku untuk semua proyek; boleh lebih lega, tidak boleh lebih sempit.
+
+| Elemen | Minimum |
+|---|---|
+| Kartu, panel, callout | `p-6` (24 px); kartu besar `p-8` |
+| Jarak antar kartu atau item grid | `gap-6` (24 px); `gap-8` lebih baik |
+| Section | `py-12` ke atas (lihat ritme di atas) |
+| Gutter halaman kiri dan kanan | `px-6` di mobile, `md:px-8` ke atas |
+| Judul ke paragraf | `mt-4` |
+| Antar paragraf | `space-y-4` |
+| Baris daftar dan item menu | `py-3` |
+| Ikon ke teks | `gap-3` |
+| Sel tabel | `px-4 py-3` |
+| Chip atau badge | `px-3 py-1` |
+| Area sentuh tombol dan input | tinggi minimal 44 px (`min-h-11`) |
+
+Tulis nilai ini di DESIGN.md dan di setiap prompt yang membuat komponen. Jangan menulis "beri ruang yang cukup"; tulis `p-6`.
+
+## Shape divider
+
+Pemisah bentuk antar section hanya boleh memakai file di `assets/shape-dividers/` (14 bentuk, lihat `references/08-shape-dividers.md` dan gambar acuan `docs/images/shape-dividers-reference.png`).
+
+- Bentuk tidak boleh diubah, ditambah, atau digambar ulang. Jangan menyentuh `d`, `viewBox`, atau layer.
+- Yang boleh diganti hanya warnanya: satu warna solid, sama dengan permukaan section di bawahnya, dari token DESIGN.md.
+- Tanpa gradasi, tanpa neon atau warna pendar, tanpa glow, shadow, filter, blur, stroke, atau animasi.
+- Pakai hemat dan konsisten; kalau tidak ada bentuk yang cocok, sambungan section dibiarkan lurus.
 
 ## Ikon dan gambar
 
@@ -77,12 +110,13 @@ Alasannya: masing-masing pola ini adalah "tanda tangan" keluaran AI yang paling 
 
 | Komponen | Spesifikasi |
 |---|---|
-| Tombol | Satu tombol primer solid per section. Aksi sekunder berupa tautan teks. `rounded-md` atau `rounded-lg`, `px-4 py-2 text-sm`, bobot 500. Tanpa gradasi, tanpa pil. |
-| Input | `border border-gray-300 rounded-md`, label di atas. Wajib punya state fokus, error (pesan di bawah, warna error), dan sukses nyata. |
+| Tombol | Satu tombol primer solid per section. Aksi sekunder berupa tautan teks. `rounded-md` atau `rounded-lg`, `px-5 py-3 text-sm min-h-11`, bobot 500. Tanpa gradasi, tanpa pil. |
+| Input | `border border-gray-300 rounded-md px-4 py-3 min-h-11`, label di atas dengan `mb-2`. Wajib punya state fokus, error (pesan di bawah, warna error), dan sukses nyata. |
 | Navigasi | `fixed top-0` dengan `border-b`, latar solid. Tanpa blur. |
 | Footer | Minimal, hanya tautan yang benar-benar ada. |
 | Cookie | Hanya bila hukum atau fitur membutuhkan. Dua pilihan dengan bobot visual sama. |
-| Kartu | Latar solid, `rounded-md`, `shadow-sm` atau `border`. Tanpa garis tebal di sisi kiri. |
+| Kartu | Latar solid, `rounded-md`, `shadow-sm` atau `border`, padding `p-6` minimal. Tanpa garis tebal di sisi kiri. Tidak boleh berisi kartu lain. |
+| Shape divider | Salin dari `assets/shape-dividers/`, bentuk tidak diubah. Satu warna solid sederhana dari token permukaan, tanpa gradasi atau neon. `h-12 md:h-20 w-full`. |
 
 ## Salinan teks
 
@@ -114,6 +148,7 @@ Alasannya: masing-masing pola ini adalah "tanda tangan" keluaran AI yang paling 
 
   /* jarak kontekstual */
   --gap-inline: 4px; --gap-card: 16px; --gap-section: 48px;
+  --pad-card: 24px; --pad-card-lg: 32px; --gap-grid: 24px;   /* batas bawah, jangan diperkecil */
 }
 @media (prefers-color-scheme: dark) {
   :root {

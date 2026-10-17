@@ -28,6 +28,7 @@ Per peran: siapa, apa yang ingin dicapai, hambatan utamanya.
 ## 4. Assets
 Tabel: file, jenis, dipakai di mana, sumber (milik pengguna / katalog Caggy).
 Cacat yang diketahui dan cara menanganinya.
+Bila memakai shape divider: nama file dari `assets/shape-dividers/`, di pergantian section mana, dan warna tokennya. Atau tulis "tidak dipakai".
 
 ## 5. Fitur dan prioritas
 Tabel: ID, fitur, prioritas (Wajib / Nanti), kriteria penerimaan.
@@ -37,7 +38,7 @@ Per halaman: tujuan, elemen dominan, isi, aksi utama (satu), state kosong/loadin
 Alur utama dalam langkah bernomor.
 
 ## 7. Arah desain
-Ringkasan dari DESIGN.md: hue brand, font, skala, lebar kontainer, momen asimetris.
+Ringkasan dari DESIGN.md: hue brand, font, skala, lebar kontainer, momen asimetris, padding kartu dan jarak grid, serta divider yang dipakai.
 
 ## 8. Data dan backend (full stack)
 Entitas dan field, relasi, aturan validasi, endpoint atau server action, peran dan izin.

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" fill="currentColor" aria-hidden="true" focusable="false">
+  <!-- License: CaggyID | (c) 2026 CaggyID | shape divider: Curve Opacity -->
+  <path opacity="0.25" d="M0,0 C0,0 250,85 500,85 C750,85 1000,0 1000,0 V100 H0 Z"/>
+  <path opacity="0.5" d="M0,0 C200,70 350,72 500,72 C650,72 800,70 1000,0 V100 H0 Z"/>
+  <path d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"/>
+</svg>

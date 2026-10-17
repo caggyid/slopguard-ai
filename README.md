@@ -25,6 +25,12 @@ Langkah 00 tidak boleh dilewati. Skill bertanya apakah kamu punya file assets da
 
 Aturan lengkapnya ada di [`references/02-design-rules.md`](references/02-design-rules.md): satu hue brand dengan pembagian 60-30-10, skala tipografi 1.25, lebar kontainer sesuai isi, minimal dua momen asimetris per halaman, satu library ikon, dan input dengan state error dan sukses yang nyata.
 
+Tiga aturan tambahan yang juga dikunci:
+
+- **Padding lega.** Padding sesak adalah tanda UI buatan AI. Kartu minimal `p-6`, jarak grid minimal `gap-6`, gutter minimal `px-6`, tombol dan input tinggi minimal 44 px.
+- **Tanpa kartu di dalam kartu.** Isi kartu dikelompokkan dengan jarak, `border-t`, atau daftar polos.
+- **Shape divider hanya dari assets.** Lihat bagian berikut.
+
 ## Gerbang assets
 
 | Jawaban | Yang terjadi |
@@ -43,6 +49,18 @@ Beberapa hal yang perlu diketahui sebelum memakainya:
 - Empat file bercacat dan sudah dicatat di katalog: watermark "Iconora Studio", teks salah eja pada gambar domain, kotak-kotak "transparan" yang tertanam, dan satu lembar ikon yang mirip logo produk Adobe.
 - Sebagian nama file asli menunjukkan sumber pihak ketiga. Pastikan hak pakainya sebelum dipakai di produk komersial.
 
+## Shape divider
+
+![Acuan 14 bentuk shape divider](docs/images/shape-dividers-reference.png)
+
+Ada 14 bentuk di [`assets/shape-dividers/`](assets/shape-dividers/): Curve, Fan, Curve Opacity, Mountains, Curve Asym., Curve Asym. Alt, Tilt, Tilt Alt, Triangle, Waves, Waves Opacity, Waves Opacity 2, Clouds, dan Speech. Aturannya di [`references/08-shape-dividers.md`](references/08-shape-dividers.md):
+
+- Bentuk tidak boleh diubah, ditambah, atau digambar sendiri. Path disalin persis.
+- Yang boleh diganti hanya warna: satu warna solid sederhana, sama dengan section di bawahnya.
+- Tanpa gradasi, tanpa neon, tanpa glow, shadow, filter, atau stroke.
+
+File SVG digambar ulang mengikuti gambar acuan (`docs/images/shape-dividers-rendered.png` menunjukkan hasilnya). Kalau kamu punya SVG vektor aslinya, ganti file dengan nama yang sama.
+
 ## Audit
 
 ![Contoh keluaran audit.py: satu folder gagal, satu folder lolos](docs/images/audit-terminal.svg)
@@ -52,7 +70,7 @@ python scripts/audit.py <folder-hasil> --mode prompts   # PRD, DESIGN, dan promp
 python scripts/audit.py <folder-proyek> --mode code     # kode hasil vibe coding
 ```
 
-Skrip memeriksa blok license, bagian wajib di tiap prompt, dan kelas atau frasa terlarang. Kode keluar 1 bila ada ERROR. Skrip ini heuristik: baris yang memuat kata penolak seperti "jangan" atau "tanpa" dianggap melarang pola, jadi kalimat yang menyelipkan pola terlarang di baris semacam itu bisa lolos. Baca juga [`references/05-audit-checklist.md`](references/05-audit-checklist.md).
+Skrip memeriksa blok license, bagian wajib di tiap prompt, dan kelas atau frasa terlarang. Di mode `code` skrip juga memberi WARN untuk padding kartu sempit, padding section di luar `py-12/16/24/32`, kartu di dalam kartu, warna neon, serta divider yang path-nya tidak cocok dengan `assets/shape-dividers/` atau diputar; gradasi SVG dihitung ERROR. Kode keluar 1 bila ada ERROR. Skrip ini heuristik: baris yang memuat kata penolak seperti "jangan" atau "tanpa" dianggap melarang pola, jadi kalimat yang menyelipkan pola terlarang di baris semacam itu bisa lolos. Baca juga [`references/05-audit-checklist.md`](references/05-audit-checklist.md).
 
 ## Instal ke agent AI
 
@@ -106,11 +124,11 @@ slopguard/
 │   ├── 04-prompt-template.md         struktur dan daftar fase prompt
 │   ├── 05-audit-checklist.md         checklist sebelum kirim
 │   ├── 06-caggy-assets-catalog.md    katalog 22 gambar
-│   ├── 07-impeccable-review.md       peta review desain (Langkah 5b)
-│   └── impeccable/                   typeset, layout, colorize, distill, harden, polish, audit
+│   ├── 07-review.md                  peta review desain (Langkah 5b)
+│   ├── 08-shape-dividers.md          aturan shape divider
+│   └── audit, typeset, layout, colorize, distill, harden, polish (.md)
 ├── assets/caggy/                     gambar per kategori + manifest.json
-├── NOTICE.md                         atribusi pihak ketiga (Impeccable, Apache 2.0)
-├── third_party/                      teks lisensi asli Impeccable
+├── assets/shape-dividers/            14 SVG divider + manifest.json
 ├── scripts/audit.py                  pemeriksa pola terlarang dan license
 └── docs/images/                      gambar untuk README dan logo
 ```

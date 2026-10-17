@@ -100,15 +100,20 @@ Membuat halaman beranda yang mengarahkan pengunjung ke satu aksi: mendaftar kunj
 - Hue brand `#0E7490`, dipakai hanya untuk tombol primer dan tautan. Permukaan `#FAFAF7` (60%), `#F0EFE9` (30%).
 - Padding section berurutan: hero `py-24`, layanan `py-12`, jadwal `py-16`, kontak `py-32`.
 - Teks isi `text-gray-700`, `leading-relaxed`.
+- Ruang napas: gutter `px-6 md:px-8`, jarak judul ke paragraf `mt-4`, baris jadwal `px-4 py-3`, tombol `px-5 py-3 min-h-11`. Tidak ada kartu di halaman ini.
 - Dua momen asimetris di halaman ini: visual hero yang menembus tepi, dan judul layanan di kolom sempit.
 
 ## Assets
 - `public/assets/hospital/hospital-building.jpg` di kolom visual hero, tampil maksimal 480 px lebar. Latar abu terang; taruh di panel `bg-[#F0EFE9]`.
+- `public/assets/shape-dividers/curve-asym.svg` di dasar hero, dipakai apa adanya (path tidak diubah). Warna `text-[#F0EFE9]`, sama dengan section layanan di bawahnya, satu warna solid. Tinggi `h-12 md:h-20`, lebar penuh.
 
 ## Kriteria penerimaan
 - [ ] Hero tidak rata tengah dan hanya punya satu tombol solid.
 - [ ] Empat section memakai tiga lebar kontainer berbeda (`max-w-6xl`, `max-w-2xl`, dan satu full-bleed).
 - [ ] Tidak ada dua section bersebelahan dengan padding yang sama.
+- [ ] Tidak ada padding sesak: kartu dan panel minimal `p-6`, jarak grid minimal `gap-6`, gutter minimal `px-6`.
+- [ ] Tidak ada kartu di dalam kartu.
+- [ ] Divider memakai path persis dari `assets/shape-dividers/curve-asym.svg`, satu warna solid, tanpa gradasi atau neon.
 - [ ] Semua `[ISI: ...]` tampil sebagai penanda yang terlihat.
 - [ ] Kontras teks isi lulus WCAG AA.
 
@@ -116,5 +121,5 @@ Membuat halaman beranda yang mengarahkan pengunjung ke satu aksi: mendaftar kunj
 Form pendaftaran (fase 03), backend (fase 04), halaman lain.
 
 ## Jangan
-Jangan membuat grid tiga kartu layanan, jangan memusatkan hero, jangan menambah strip logo klien atau testimoni.
+Jangan membuat grid tiga kartu layanan, jangan memusatkan hero, jangan menambah strip logo klien atau testimoni, jangan menaruh kartu di dalam kartu, jangan mempersempit padding di bawah `p-6`, jangan menggambar divider sendiri atau memberinya gradasi dan warna neon.
 ```

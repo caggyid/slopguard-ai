@@ -12,6 +12,8 @@ Kode keluar: 1 bila ada ERROR, 0 bila bersih atau hanya WARN.
 Hanya memakai pustaka standar Python.
 """
 import argparse
+import colorsys
+import json
 import os
 import re
 import sys
@@ -34,7 +36,19 @@ RULES = [
     (r"\b(Inter|Geist)\b", "font Inter/Geist", "WARN"),
     (r"(?i)trusted by|supercharge|unlock the power|revolutioni[sz]e|seamless(ly)?\b", "frasa klise AI", "ERROR"),
     (r"\btext-gray-(100|200|300|400|500|600)\b", "teks abu pucat (isi minimal gray-700 terang / gray-200 gelap)", "WARN"),
+    (r"(?i)<(linear|radial)Gradient|\bfill\s*=\s*[\"']url\(", "gradasi di SVG (divider dan permukaan harus solid)", "ERROR"),
 ]
+
+# Padding sesak pada kartu: baris yang menyebut kartu/panel tetapi memakai padding di bawah p-6.
+CARD_WORD = re.compile(r"(?i)\b(card|panel|tile|callout|kartu)\b")
+SMALL_PAD = re.compile(r"(?<![\w-])(?:[a-z]+:)?(?:p|px|py)-(?:0|0\.5|1|1\.5|2|2\.5|3|3\.5|4|5)(?![\w.-])")
+SECTION_PY = re.compile(r"(?<![\w-])(?:[a-z]+:)?py-(\d+(?:\.\d+)?)(?![\w.-])")
+ALLOWED_SECTION_PY = {"12", "16", "24", "32"}
+HEX = re.compile(r"#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b")
+DIVIDER_TRANSFORM = re.compile(r"rotate-180|(?<![\w])-?scale-[xy]-\[?-?1\]?|rotate\(180|scale\(-1")
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+MANIFEST = os.path.join(HERE, "..", "assets", "shape-dividers", "manifest.json")
 
 EMOJI = re.compile("[\U0001F300-\U0001FAFF\u2600-\u27BF\u2B50\u2B06\u2B07]")
 
@@ -43,7 +57,8 @@ NEGATION = re.compile(
     r"(?i)\b(jangan|dilarang|hindari|terlarang|tidak boleh|tanpa|bukan|banned|never|avoid|don't|do not|no)\b"
 )
 
-CODE_EXT = {".tsx", ".jsx", ".ts", ".js", ".html", ".css", ".scss", ".vue", ".svelte", ".astro", ".mdx"}
+CODE_EXT = {".tsx", ".jsx", ".ts", ".js", ".html", ".css", ".scss", ".vue", ".svelte", ".astro", ".mdx", ".svg"}
+MARKUP_EXT = {".tsx", ".jsx", ".html", ".vue", ".svelte", ".astro", ".mdx"}
 SKIP_DIRS = {"node_modules", ".next", "dist", "build", ".git", ".turbo", ".vercel", "coverage"}
 
 
@@ -70,6 +85,89 @@ def check_license(path, lines, out):
         out.append((path, 2, "WARN", "baris kedua sebaiknya '(c) 2026 CaggyID'"))
 
 
+def is_neon(hexstr):
+    h = hexstr.lstrip("#")
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    r, g, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    _, light, sat = colorsys.rgb_to_hls(r, g, b)
+    return sat >= 0.97 and 0.45 <= light <= 0.78
+
+
+def known_divider_paths():
+    try:
+        with open(MANIFEST, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except (OSError, ValueError):
+        return None
+    return {re.sub(r"\s+", "", d) for item in data for d in item["d"]}
+
+
+SVG_BLOCK = re.compile(r"<svg\b([^>]*)>(.*?)</svg>", re.S | re.I)
+VIEWBOX_DIV = re.compile(r"viewBox\s*=\s*[\"']\s*0\s+0\s+1000\s+100\s*[\"']")
+PATH_D = re.compile(r"\bd\s*=\s*[\"']([^\"']+)[\"']")
+
+
+def check_dividers(path, text, out):
+    known = known_divider_paths()
+    if known is None:
+        return
+    for m in SVG_BLOCK.finditer(text):
+        if not VIEWBOX_DIV.search(m.group(1)):
+            continue
+        line = text.count("\n", 0, m.start()) + 1
+        for d in PATH_D.findall(m.group(2)):
+            if re.sub(r"\s+", "", d) not in known:
+                out.append((path, line, "WARN", "bentuk divider tidak cocok dengan assets/shape-dividers (path tidak boleh diubah)"))
+                break
+        if DIVIDER_TRANSFORM.search(m.group(1)):
+            out.append((path, line, "WARN", "divider diputar atau dibalik (pakai varian Alt yang tersedia, jangan transform)"))
+
+
+TAG = re.compile(r"<(/?)([A-Za-z][\w.]*)((?:[^<>\"'{}]|\"[^\"]*\"|'[^']*'|\{[^{}]*\})*?)(/?)>")
+VOID = {"img", "br", "hr", "input", "meta", "link", "source", "area", "col", "embed", "wbr", "path", "circle", "rect", "line", "use"}
+NOT_CARD_TAGS = {"button", "input", "textarea", "select", "img", "td", "th", "tr", "pre", "code", "svg", "a", "span", "label", "option"}
+CLASS_ATTR = re.compile(r"(?:class|className)\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|\{`([^`]*)`\}|\{\"([^\"]*)\"\})")
+
+
+def is_card(name, attrs):
+    if name in NOT_CARD_TAGS:
+        return False
+    if name == "Card" or name.endswith(".Card"):
+        return True
+    m = CLASS_ATTR.search(attrs)
+    if not m:
+        return False
+    cls = next((g for g in m.groups() if g), "")
+    toks = set(re.split(r"\s+", cls.strip()))
+    base = {t.split(":")[-1] for t in toks}
+    if base & {"badge", "chip", "avatar", "pill"} or "rounded-full" in base:
+        return False
+    if "card" in base or any(t.endswith("-card") or t.startswith("card-") for t in base):
+        return True
+    rounded = any(t.startswith("rounded") and t != "rounded-none" for t in base)
+    edged = "border" in base or any(t.startswith("shadow") and t != "shadow-none" for t in base)
+    return rounded and edged
+
+
+def check_nested_cards(path, text, out):
+    stack = []
+    for m in TAG.finditer(text):
+        closing, name, attrs, selfclose = m.groups()
+        if closing:
+            for i in range(len(stack) - 1, -1, -1):
+                if stack[i][0] == name:
+                    del stack[i:]
+                    break
+            continue
+        card = is_card(name, attrs)
+        if card and any(c for _, c in stack):
+            line = text.count("\n", 0, m.start()) + 1
+            out.append((path, line, "WARN", "kartu di dalam kartu (nested card dilarang)"))
+        if not selfclose and name.lower() not in VOID:
+            stack.append((name, card))
+
+
 def scan_lines(path, lines, out, skip_negated):
     py20 = 0
     center = 0
@@ -82,6 +180,17 @@ def scan_lines(path, lines, out, skip_negated):
                 out.append((path, i, level, label))
         if EMOJI.search(line) and not negated:
             out.append((path, i, "ERROR", "emoji/dingbat (jangan dipakai sebagai ikon)"))
+        if not negated:
+            if CARD_WORD.search(line) and SMALL_PAD.search(line):
+                out.append((path, i, "WARN", "padding kartu sempit (minimal p-6)"))
+            if re.search(r"<section\b", line):
+                bad = [n for n in SECTION_PY.findall(line) if n not in ALLOWED_SECTION_PY]
+                if bad:
+                    out.append((path, i, "WARN", f"padding section py-{bad[0]} di luar py-12/16/24/32"))
+            for hx in HEX.findall(line):
+                if is_neon(hx):
+                    out.append((path, i, "WARN", f"warna neon atau berjenuh tinggi {hx} (pakai warna sederhana)"))
+                    break
         py20 += len(re.findall(r"\bpy-20\b", line))
         center += len(re.findall(r"\btext-center\b", line))
     if py20 >= 3:
@@ -114,6 +223,9 @@ def audit_prompts(root, out):
         lines = read_lines(p)
         check_license(p, lines, out)
         scan_lines(p, lines, out, skip_negated=True)
+        text_all = "\n".join(lines)
+        if re.search(r"(?i)\bdivider\b|pemisah (section|bentuk)", text_all) and "shape-dividers" not in text_all:
+            out.append((p, 0, "WARN", "menyebut divider tanpa merujuk assets/shape-dividers/"))
         if os.path.basename(os.path.dirname(p)) == "prompts":
             text = "\n".join(lines)
             for section in ("Kriteria penerimaan", "Di luar cakupan"):
@@ -123,7 +235,12 @@ def audit_prompts(root, out):
 
 def audit_code(root, out):
     for p in walk(root, CODE_EXT):
-        scan_lines(p, read_lines(p), out, skip_negated=False)
+        lines = read_lines(p)
+        scan_lines(p, lines, out, skip_negated=False)
+        text = "\n".join(lines)
+        check_dividers(p, text, out)
+        if os.path.splitext(p)[1].lower() in MARKUP_EXT:
+            check_nested_cards(p, text, out)
 
 
 def main():

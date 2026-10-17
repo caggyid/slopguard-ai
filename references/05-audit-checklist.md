@@ -16,6 +16,9 @@ Skrip bersifat heuristik. Baris yang memuat kata penolak ("jangan", "tanpa", "hi
 - [ ] Setiap file `PRD.md`, `DESIGN.md`, dan `prompts/*.md` diawali `License: CaggyID`
 - [ ] Setiap prompt punya bagian "Kriteria penerimaan" dan "Di luar cakupan"
 - [ ] Tidak ada kelas atau frasa terlarang yang muncul sebagai instruksi
+- [ ] Tidak ada gradasi atau warna neon di divider SVG; path divider cocok dengan `assets/shape-dividers/` (mode code)
+- [ ] Tidak ada padding kartu di bawah `p-6` dan tidak ada padding section di luar `py-12/16/24/32` (WARN, tinjau manual)
+- [ ] Tidak ada kartu di dalam kartu (WARN, tinjau manual)
 - [ ] Tidak ada emoji
 
 ## Manual: assets
@@ -38,6 +41,9 @@ Skrip bersifat heuristik. Baris yang memuat kata penolak ("jangan", "tanpa", "hi
 - [ ] Setiap section punya satu elemen dominan
 - [ ] Hero tidak rata tengah dan hanya satu tombol solid; aksi sekunder berupa tautan teks
 - [ ] Tidak ada tiga kartu identik sejajar
+- [ ] Tidak ada kartu di dalam kartu; isi kartu dikelompokkan dengan jarak atau `border-t`
+- [ ] Padding tidak sesak: kartu minimal `p-6`, grid minimal `gap-6`, gutter minimal `px-6`, tombol dan input tinggi minimal 44 px
+- [ ] Divider hanya dari `assets/shape-dividers/`, path tidak diubah, satu warna solid sama dengan section di bawahnya, tanpa gradasi atau neon, DESIGN.md menyebut di mana dipakai
 - [ ] Satu library ikon, satu varian, 16 sampai 24 px
 - [ ] Setiap titik status ada di tabel status PRD
 - [ ] Input punya state fokus, error, dan sukses

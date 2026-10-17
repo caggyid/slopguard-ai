@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" fill="currentColor" aria-hidden="true" focusable="false">
+  <!-- License: CaggyID | (c) 2026 CaggyID | shape divider: Fan -->
+  <path opacity="0.25" d="M0,28 L1000,100 H0 Z"/>
+  <path opacity="0.25" d="M1000,28 L0,100 H1000 Z"/>
+  <path d="M0,95 H1000 V100 H0 Z"/>
+</svg>
